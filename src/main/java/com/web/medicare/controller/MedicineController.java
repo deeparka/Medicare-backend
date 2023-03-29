@@ -31,7 +31,7 @@ public class MedicineController {
 		return medicineRepo.findAll();
 	}
 	
-	@PutMapping(path="/medicine/update")
+	@PutMapping(path="/medicine/update/{id}")
 	public Medicine updateMedicine(@RequestBody Medicine medicine) {
 		medicineRepo.save(medicine);
 		return medicine;

@@ -19,20 +19,20 @@ public class UserController {
 	@Autowired
 	UserRepo userRepo;
 	
-	@PostMapping(path="/medicine/add")
-	public User addMedicine(@RequestBody User user) {
+	@PostMapping(path="/user/add")
+	public User addUser(@RequestBody User user) {
 		userRepo.save(user);
 		return user;
 	}
 	
-	@GetMapping(path="/medicines")
+	@GetMapping(path="/users")
 	@ResponseBody
-	public List<User> getMedicine() {
+	public List<User> getUser() {
 		return userRepo.findAll();
 	}
 	
-	@PutMapping(path="/medicine/update")
-	public User updateMedicine(@RequestBody User user) {
+	@PutMapping(path="/user/update")
+	public User updateUser(@RequestBody User user) {
 		userRepo.save(user);
 		return user;
 	}
