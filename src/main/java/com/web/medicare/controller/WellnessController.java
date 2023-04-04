@@ -14,38 +14,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.web.medicare.dao.MedicineRepo;
-import com.web.medicare.model.Medicine;
+import com.web.medicare.dao.WellnessRepo;
+import com.web.medicare.model.Wellness;
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:8081")
-public class MedicineController {
+public class WellnessController {
 	
 	@Autowired
-	MedicineRepo medicineRepo;
+	WellnessRepo wellnessRepo;
 	
-	@PostMapping(path="/medicine/add")
-	public Medicine addMedicine(@RequestBody Medicine medicine) {
-		medicineRepo.save(medicine);
-		return medicine;
+	@PostMapping(path="/wellness/add")
+	public Wellness addwellness(@RequestBody Wellness wellness) {
+		wellnessRepo.save(wellness);
+		return wellness;
 	}
 	
-	@GetMapping(path="/medicines")
+	@GetMapping(path="/wellnesses")
 	@ResponseBody
-	public List<Medicine> getMedicine() {
-		return medicineRepo.findAll();
+	public List<Wellness> getwellness() {
+		return wellnessRepo.findAll();
 	}
 	
-	@PutMapping(path="/medicine/update/{id}")
-	public Medicine updateMedicine(@RequestBody Medicine medicine) {
-		medicineRepo.save(medicine);
-		return medicine;
+	@PutMapping(path="/wellness/update/{id}")
+	public Wellness updatewellness(@RequestBody Wellness wellness) {
+		wellnessRepo.save(wellness);
+		return wellness;
 	}
 	
-	@DeleteMapping(path = "/medicine/delete/{id}")
-	public String deleteMedicineById(@PathVariable("id") int id) {
-		medicineRepo.deleteById(id);
+	@DeleteMapping(path = "/wellness/delete/{id}")
+	public String deletewellnessById(@PathVariable("id") int id) {
+		wellnessRepo.deleteById(id);
 		return id + " is deleted";
 	}
 	

@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @EnableTransactionManagement
 public class User {
 	
@@ -25,11 +25,17 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 	
+	@Column(name = "phone")
+	private String phone;
+	
 	@Column(name = "email")
 	private String email;
 	
 	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "type")
+	private String userType;
 	
 	public int getId() {
 		return id;
@@ -49,6 +55,12 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -61,11 +73,17 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", LastName=" + lastName + ", email=" + email
-				+ ", password=" + password + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone
+				+ ", email=" + email + ", password=" + password + ", userType=" + userType + "]";
 	}
 	
 }

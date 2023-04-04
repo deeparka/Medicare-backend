@@ -44,7 +44,7 @@ public class AppointmentController {
 	}
 	
 	@DeleteMapping(path = "/appointment/delete/{id}")
-	public String deleteAppointmentById(@PathVariable int id) {
+	public String deleteAppointmentById(@PathVariable("id") int id) {
 		aptRepo.deleteById(id);
 		return id + " is deleted";
 	}

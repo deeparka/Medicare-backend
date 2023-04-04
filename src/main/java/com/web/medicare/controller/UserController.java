@@ -37,6 +37,12 @@ public class UserController {
 		return userRepo.findAll();
 	}
 	
+	@GetMapping(path="/user/{email}")
+	@ResponseBody
+	public void getUserByEmail(@PathVariable("email") String email) {
+		userRepo.findByEmail(email);
+	}
+	
 	@PutMapping(path="/user/update/{id}")
 	public User updateUser(@RequestBody User user) {
 		userRepo.save(user);
@@ -44,8 +50,8 @@ public class UserController {
 	}
 	
 	@DeleteMapping(path = "/user/delete/{id}")
-	public String deleteUserById(@PathVariable int id) {
+	public String deleteUserById(@PathVariable("id") int id) {
 		userRepo.deleteById(id);
-		return "${id} is deleted";
+		return id + " is deleted";
 	}
 }
