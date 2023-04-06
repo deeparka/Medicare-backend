@@ -1,13 +1,11 @@
 package com.web.medicare.dao;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.web.medicare.model.User;
+import com.web.medicare.model.Contact;
 
 @Repository
-public interface UserRepo extends JpaRepository<User, Integer> {
-	User findByEmail(String email);
+public interface ContactRepo extends JpaRepository<Contact, Integer> {
+
 }
