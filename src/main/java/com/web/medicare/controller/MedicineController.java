@@ -3,6 +3,7 @@ package com.web.medicare.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +36,24 @@ public class MedicineController {
 	@ResponseBody
 	public List<Medicine> getMedicine() {
 		return medicineRepo.findAll();
+	}
+	
+	@GetMapping(path="/medicines/name")
+	@ResponseBody
+	public List<Medicine> getMedicineByNameSorted() {
+		return medicineRepo.findAll(Sort.by("name"));
+	}
+	
+	@GetMapping(path="/medicines/category")
+	@ResponseBody
+	public List<Medicine> getMedicineByCategorySorted() {
+		return medicineRepo.findAll(Sort.by("category"));
+	}
+	
+	@GetMapping(path="/medicines/price")
+	@ResponseBody
+	public List<Medicine> getMedicineByPriceSorted() {
+		return medicineRepo.findAll(Sort.by("price"));
 	}
 	
 	@PutMapping(path="/medicine/update/{id}")

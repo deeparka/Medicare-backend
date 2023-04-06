@@ -26,7 +26,7 @@ public class Medicine {
 	private String category;
 	
 	@Column(name = "price")
-	private String price;
+	private int price;
 	
 	public int getId() {
 		return id;
@@ -46,10 +46,10 @@ public class Medicine {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	
