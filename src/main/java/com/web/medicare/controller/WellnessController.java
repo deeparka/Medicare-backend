@@ -37,6 +37,12 @@ public class WellnessController {
 		return wellnessRepo.findAll();
 	}
 	
+	@GetMapping(path="/wellness/{name}")
+	@ResponseBody
+	public Wellness getWellnessByName(@PathVariable("name") String name) {
+		return wellnessRepo.findByName(name);
+	}
+	
 	@PutMapping(path="/wellness/update/{id}")
 	public Wellness updatewellness(@RequestBody Wellness wellness) {
 		wellnessRepo.save(wellness);

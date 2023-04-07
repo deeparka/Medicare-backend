@@ -7,5 +7,5 @@ import com.web.medicare.model.Wellness;
 
 @Repository
 public interface WellnessRepo extends JpaRepository<Wellness, Integer> {
-
+	Wellness findByName(String name);
 }

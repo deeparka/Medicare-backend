@@ -56,6 +56,12 @@ public class MedicineController {
 		return medicineRepo.findAll(Sort.by("price"));
 	}
 	
+	@GetMapping(path="/medicine/{name}")
+	@ResponseBody
+	public Medicine getMedicineByName(@PathVariable("name") String name) {
+		return medicineRepo.findMedicineByName(name);
+	}
+	
 	@PutMapping(path="/medicine/update/{id}")
 	public Medicine updateMedicine(@RequestBody Medicine medicine) {
 		medicineRepo.save(medicine);

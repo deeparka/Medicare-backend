@@ -7,5 +7,6 @@ import com.web.medicare.model.Medicine;
 
 @Repository
 public interface MedicineRepo extends JpaRepository<Medicine, Integer> {
+	Medicine findMedicineByName(String name);
 
 }
